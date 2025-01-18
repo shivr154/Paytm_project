@@ -1,4 +1,5 @@
 import { Button } from "./button";
+import { useRouter } from 'next/navigation';
 
 interface AppbarProps {
     user?: {
@@ -14,8 +15,11 @@ export const Appbar = ({
     onSignin,
     onSignout
 }: AppbarProps) => {
-    return <div className="flex justify-between border-b px-4">
-        <div className="text-lg flex flex-col justify-center">
+    const router = useRouter();
+    return <div className="flex justify-between border-b border-gray-300 px-4 ">
+        <div onClick={()=>{
+            router.push("/");
+        }} className="text-lg flex flex-col justify-center cursor-pointer">
             PayTM
         </div>
         <div className="flex flex-col justify-center pt-2">
